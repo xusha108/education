@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            font-size: 1rem;
+            text-transform: uppercase;
+            color:lightslategray;
+            column-count: 1;
+            padding: 5px 5px;            
+        }   
+    </style>
+</head>
+<body>
+    <button onclick="add()">Add</button>      
+    <p id="out_arr"></p>  
+
+  <script>
+        let animals =['koala','panda', 'kengaroo', 'iguana']  
+        render(animals)       
+
+        function add() {
+            animals.push('some animal');
+            render(animals) 
+        };        
+
+        function remove(index) {
+            animals.splice(index, 1);       
+            render(animals);            
+        }
+
+        
+        function edit(index) {
+            
+               
+            render(animals);            
+        }
+
+        function render(array) { 
+            let out_arr = document.getElementById('out_arr');
+            let elem = '';
+            array.forEach( function(el,i) {   
+                elem +='<span id="input-' +i+ '">' + '<input value="'+el+'">'+'</input>'+
+                '<button onclick="remove('+i+')">'+'Remove'+'</button>' +'<button>'+'Edit'+
+                '</button>'+'<br>'+'</span>'; 
+            })
+            out_arr.innerHTML = elem;
+        }
+   
+  </script>
+</body>
+</html>
