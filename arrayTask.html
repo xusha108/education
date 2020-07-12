@@ -31,11 +31,9 @@
             animals.splice(index, 1);       
             render(animals);            
         }
-
         
         function edit(index) {
-            
-               
+            animals.splice(index, 1, 'new animal') 
             render(animals);            
         }
 
@@ -44,7 +42,7 @@
             let elem = '';
             array.forEach( function(el,i) {   
                 elem +='<span id="input-' +i+ '">' + '<input value="'+el+'">'+'</input>'+
-                '<button onclick="remove('+i+')">'+'Remove'+'</button>' +'<button>'+'Edit'+
+                '<button onclick="remove('+i+')">'+'Remove'+'</button>' +'<button  onclick="edit('+i+')">'+'Edit'+
                 '</button>'+'<br>'+'</span>'; 
             })
             out_arr.innerHTML = elem;
